@@ -1,0 +1,11 @@
+.element-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid var(--light);
+	border-radius: 18px;
+}
+
+.element {
+	color: var(--secondary-accent);
+}

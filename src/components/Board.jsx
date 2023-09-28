@@ -5,10 +5,22 @@ import Element from "./Element";
 const Board = () => {
 	return (
 		<div className="board">
-			<Element text="fire" />
-			<Element text="water" />
-			<Element text="earth" />
-			<Element text="air" />
+			<Element
+				type="fire"
+				className="element-1"
+			/>
+			<Element
+				type="water"
+				className="element-2"
+			/>
+			<Element
+				type="earth"
+				className="element-3"
+			/>
+			<Element
+				type="air"
+				className="element-4"
+			/>
 		</div>
 	);
 };

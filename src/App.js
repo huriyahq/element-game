@@ -4,13 +4,22 @@ import Board from "./components/Board";
 
 function App() {
 	return (
-		<div className="App">
-			<h1>Home</h1>
+		<div className="app">
+			<h1>Element Game</h1>
+			<div className="app-instructions">
+				<p></p>
+			</div>
 			<Board />
-			<Button
-				buttonStyle="primary"
-				text="start"
-			/>
+			<div className="app-options">
+				<Button
+					buttonStyle="primary"
+					text="start"
+				/>
+				<Button
+					buttonStyle="secondary"
+					text="reset"
+				/>
+			</div>
 		</div>
 	);
 }
