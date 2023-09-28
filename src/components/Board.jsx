@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "../styles/Board.css";
 import Element from "./Element";
 import ScoreBoard from "./ScoreBoard";
+import Button from "./Button";
 
-const Board = () => {
+const Board = ({ handleResetClick }) => {
 	const [playerSelectedElement, setPlayerSelectedElement] = useState(null);
 	const [computerSelectedElement, setComputerSelectedElement] = useState(null);
 	const [playerScore, setPlayerScore] = useState(0);
 	const [computerScore, setComputerScore] = useState(0);
+	const [message, setMessage] = useState("");
 
 	const handleElementClick = (elementType) => {
 		setPlayerSelectedElement(elementType);
@@ -40,6 +42,20 @@ const Board = () => {
 		} else {
 			setComputerScore(computerScore + 1);
 		}
+
+		gameRound(playerScore, computerScore);
+	};
+
+	const gameRound = (playerScore, computerScore) => {
+		if (playerScore + computerScore === 4) {
+			if (playerScore > computerScore) {
+				setMessage("Game over. You won this round.");
+			} else if (playerScore < computerScore) {
+				setMessage("Game over. Computer won this round.");
+			} else {
+				setMessage("Game over. It was a draw.");
+			}
+		}
 	};
 
 	return (
@@ -48,6 +64,9 @@ const Board = () => {
 				playerScore={playerScore}
 				computerScore={computerScore}
 			/>
+			<div>
+				<p className="message">{message}</p>
+			</div>
 			<div className="board">
 				<div className="options">
 					<Element
@@ -91,6 +110,18 @@ const Board = () => {
 						/>
 					)}
 				</div>
+				<Button
+					text="reset"
+					onClick={() => {
+						handleResetClick();
+						setPlayerSelectedElement(null);
+						setComputerSelectedElement(null);
+						setPlayerScore(0);
+						setComputerScore(0);
+						setMessage("");
+					}}
+					buttonStyle="secondary"
+				/>
 			</div>
 		</>
 	);
