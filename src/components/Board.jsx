@@ -33,24 +33,28 @@ const Board = ({ handleResetClick }) => {
 			air: { beats: ["water"], losesTo: ["fire", "earth"] },
 		};
 
+		let newPlayerScore = playerScore;
+		let newComputerScore = computerScore;
+
 		if (playerElement === computerElement) {
 			return;
-		}
-
-		if (outcomes[playerElement]?.beats.includes(computerElement)) {
-			setPlayerScore(playerScore + 1);
+		} else if (outcomes[playerElement]?.beats.includes(computerElement)) {
+			newPlayerScore++;
 		} else {
-			setComputerScore(computerScore + 1);
+			newComputerScore++;
 		}
 
-		gameRound(playerScore, computerScore);
+		setPlayerScore(newPlayerScore);
+		setComputerScore(newComputerScore);
+
+		gameRound(newPlayerScore, newComputerScore);
 	};
 
-	const gameRound = (playerScore, computerScore) => {
-		if (playerScore + computerScore === 4) {
-			if (playerScore > computerScore) {
+	const gameRound = (newPlayerScore, newComputerScore) => {
+		if (newPlayerScore + newComputerScore === 5) {
+			if (newPlayerScore > newComputerScore) {
 				setMessage("Game over. You won this round.");
-			} else if (playerScore < computerScore) {
+			} else if (newPlayerScore < newComputerScore) {
 				setMessage("Game over. Computer won this round.");
 			} else {
 				setMessage("Game over. It was a draw.");
