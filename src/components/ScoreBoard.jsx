@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/Scoreboard.css";
 
-const ScoreBoard = () => {
+const ScoreBoard = ({ playerScore, computerScore }) => {
 	return (
 		<div className="scoreboard">
 			<p>
-				Player: <span>0</span>
+				Player: <span>{playerScore}</span>
 			</p>
 			<p>
-				Computer: <span>0</span>
+				Computer: <span> {computerScore}</span>
 			</p>
 		</div>
 	);

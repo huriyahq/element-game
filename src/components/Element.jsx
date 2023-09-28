@@ -31,6 +31,7 @@ const Element = ({ type, isSelected, onClick }) => {
 		<div
 			className="element-box"
 			onClick={onClick}
+			value={lowerCaseType}
 		>
 			{icon}
 		</div>
