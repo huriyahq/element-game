@@ -11,8 +11,8 @@ const Board = () => {
 
 	const handleElementClick = (elementType) => {
 		setPlayerSelectedElement(elementType);
-		selectComputerElement();
-		updateScores();
+		const computerElement = selectComputerElement();
+		updateScores(elementType, computerElement);
 	};
 
 	const selectComputerElement = () => {
@@ -20,9 +20,10 @@ const Board = () => {
 		const index = Math.floor(Math.random() * elements.length);
 		const element = elements[index];
 		setComputerSelectedElement(element);
+		return element;
 	};
 
-	const updateScores = (playerSelectedElement, computerSelectedElement) => {
+	const updateScores = (playerElement, computerElement) => {
 		const outcomes = {
 			fire: { beats: ["air"], losesTo: ["water", "earth"] },
 			water: { beats: ["fire", "earth"], losesTo: ["air"] },
@@ -30,13 +31,11 @@ const Board = () => {
 			air: { beats: ["water"], losesTo: ["fire", "earth"] },
 		};
 
-		if (playerSelectedElement === computerSelectedElement) {
+		if (playerElement === computerElement) {
 			return;
 		}
 
-		if (
-			outcomes[playerSelectedElement]?.beats.includes(computerSelectedElement)
-		) {
+		if (outcomes[playerElement]?.beats.includes(computerElement)) {
 			setPlayerScore(playerScore + 1);
 		} else {
 			setComputerScore(computerScore + 1);
