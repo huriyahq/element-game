@@ -1,0 +1,16 @@
+.scoreboard {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.scoreboard > * {
+	background-color: var(--secondary-accent);
+	color: var(--dark);
+	border-radius: 18px;
+	padding: 0.8rem;
+	text-align: center;
+	text-transform: lowercase;
+}

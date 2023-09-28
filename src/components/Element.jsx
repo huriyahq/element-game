@@ -11,7 +11,7 @@ const Element = ({ type }) => {
 			icon = (
 				<FireIcon
 					className="element"
-					sx={{ fontSize: 80 }}
+					// sx={{ fontSize: 80 }}
 				/>
 			);
 			break;
@@ -19,7 +19,7 @@ const Element = ({ type }) => {
 			icon = (
 				<WaterIcon
 					className="element"
-					sx={{ fontSize: 80 }}
+					// sx={{ fontSize: 80 }}
 				/>
 			);
 			break;
@@ -27,7 +27,7 @@ const Element = ({ type }) => {
 			icon = (
 				<EarthIcon
 					className="element"
-					sx={{ fontSize: 80 }}
+					// sx={{ fontSize: 80 }}
 				/>
 			);
 			break;
@@ -35,7 +35,7 @@ const Element = ({ type }) => {
 			icon = (
 				<AirIcon
 					className="element"
-					sx={{ fontSize: 80 }}
+					// sx={{ fontSize: 80 }}
 				/>
 			);
 			break;
